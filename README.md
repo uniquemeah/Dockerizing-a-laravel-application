@@ -34,46 +34,11 @@ Clone the repository and change directory:
 
 Install dependencies (if you have `composer` locally):
 
-    composer create-project
+Use link: https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
 
-Alternatively you can do the same with Docker:
+Create a Dockerfile and docker-compose.yml file
 
-    docker run --rm -it \
-        --volume $PWD:/app \
-        --user $(id -u):$(id -g) \
-        composer create-project
-
-Start the containers with PHP application and PostgreSQL database:
-
-    ./vendor/bin/sail up -d
-
-(Optional) Configure a Bash alias for `sail` command:
-
-    alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-
-Migrate the database with seeding:
-
-    sail artisan migrate --seed
-
-## Usage
-
-The API is available at `http://localhost:3000/api` (You can change the `APP_PORT` in `.env` file).
-
-### Run tests
-
-    sail artisan test
-
-### Run PHPStan static analysis
-
-    sail php ./vendor/bin/phpstan
-
-### OpenAPI specification (not ready yet)
-
-Swagger UI will be live at [http://localhost:3000/api/documentation](http://localhost:3000/api/documentation).
-
-For now, please visit the specification [here](https://github.com/gothinkster/realworld/tree/main/api).
-
-## Contributions
+Run docker compose build && docker compose up -d
 
 Feedback, suggestions, and improvements are welcome, feel free to contribute.
 
